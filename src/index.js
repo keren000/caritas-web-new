@@ -1,17 +1,51 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import styled from 'styled-components';
+
+import theme from './utils/theme';
+import GlobalStyles from './utils/global';
+import store from './store';
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Loader from './components/UI/Loader/Loader';
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const root = document.getElementById('root');
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <ThemeProvider theme={theme}>
+    <>
+      <Wrapper>
+        <Loader />
+      </Wrapper>
+      <GlobalStyles />
+    </>
+  </ThemeProvider>,
+  root
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+store.firebaseAuthIsReady.then(() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <>
+            <App />
+            <GlobalStyles />
+          </>
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>,
+    root
+  );
+});

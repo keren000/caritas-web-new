@@ -1,0 +1,43 @@
+/* .root{
+  background-color: aqua;
+  }  */
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+  .root {
+  /* background: red; */
+  margin-top: -200px;
+  overflow: hidden
+  }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+  .root {
+  /* background: green; */
+  margin-top: -500px;
+  overflow: hidden}
+  }
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+  .root {
+  /* background: blue; */
+  margin-top: -410px;
+  overflow: hidden}
+  } 
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+  .root {
+  /* background: orange; */
+  margin-top: -235px;
+  overflow: hidden}
+  } 
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  /* @media only screen and (min-width: 1200px) {
+  .root { */
+  /* background: pink; */
+  /* margin-top: -230px;
+  /* overflow: hidden} */
+  /* } */
+  
+  
